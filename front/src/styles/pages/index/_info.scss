@@ -1,0 +1,132 @@
+.info {
+  display: grid;
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: 522px auto;
+    grid-column-gap: 44px;
+    margin-bottom: 154px;
+  }
+
+  @include media-breakpoint-down(md) {
+    margin-bottom: 120px;
+  }
+}
+
+.info__title {
+  text-transform: uppercase;
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 42px;
+  }
+
+  @include media-breakpoint-down(md) {
+    margin-bottom: 32px;
+  }
+}
+
+.info__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 20px;
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 48px;
+  }
+
+  @include media-breakpoint-down(md) {
+    margin-bottom: 24px;
+  }
+}
+
+.info__table-row {
+  transition: .3s;
+
+  @include media-breakpoint-down(md) {
+    display: block;
+    padding-block: 9px;
+  }
+}
+
+.info__table-row:not(:last-child) {
+  @include media-breakpoint-down(md) {
+    border-bottom: 2px solid #d0d0d0;
+  }
+}
+
+.info__table-row:hover {
+  background-color: var(--grey-4);
+}
+
+.info__table-cell {
+  @include media-breakpoint-down(md) {
+    display: inline-block;
+    padding-block: 6px;
+  }
+}
+
+.info__table-cell:first-child {
+  @include media-breakpoint-up(lg) {
+    padding: 16px 16px 16px 0;
+  }
+}
+
+.info__table-cell:not(:first-child) {
+  font-weight: 600;
+
+  @include media-breakpoint-up(lg) {
+    padding: 16px;
+  }
+}
+
+.info__table-cell:not(:last-child) {
+  @include media-breakpoint-up(lg) {
+    border-right: 2px solid #d0d0d0;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-right: 12px;
+  }
+}
+
+.info__table-cell--border-bottom {
+  @include media-breakpoint-up(lg) {
+    border-bottom: 2px solid #d0d0d0;
+  }
+}
+
+.info__table-cell--caption {
+  color: var(--grey-2);
+}
+
+.info__description {
+  color: var(--blue);
+
+  @include media-breakpoint-up(lg) {
+    font-size: 20px;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 18px;
+  }
+}
+
+.info__picture {
+  @include media-breakpoint-down(md) {
+    margin-bottom: 24px;
+  }
+}
+
+.info__price-was {
+  position: relative;
+}
+
+.info__price-was::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 54%;
+  height: 2px;
+  display: block;
+  background-color: var(--red);
+}
