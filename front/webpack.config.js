@@ -15,6 +15,7 @@ module.exports = {
 
     entry: {
         index: "./src/js/pages/index/index.js",
+        // page: "./src/js/pages/page/index.js",
     },
 
     output: {

@@ -1,23 +1,12 @@
+version: "3.9"
+
 services:
   front:
-    build:
-      context: ./
-      target: dev
-    volumes:
-      - ./front:/usr/app/front
-      - /usr/app/front/node_modules
+    image: node:14.20.1-alpine
     working_dir: /usr/app/front
-    ports:
-      - "4000:4000"
-    command: sh -c "npm run dev"
+    command: "yarn install && yarn run build"
+
   server:
-    build:
-      context: ./
-      target: dev
-    volumes:
-      - ./server:/usr/app/server
-      - /usr/app/server/node_modules
+    image: node:14.20.1-alpine
     working_dir: /usr/app/server
-    ports:
-      - "4100:4100"
-    command: sh -c "npm run dev"
+    command: "yarn install && yarn run build"

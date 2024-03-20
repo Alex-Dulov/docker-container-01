@@ -1,0 +1,48 @@
+image: 'node:latest'
+cache:
+    paths:
+        - node_modules/
+stages:
+    - build
+    - test
+    - pre-production
+    - production
+build:
+    stage: build
+    script:
+        - 'npm install'
+        - 'npm run build'
+    artifacts:
+        paths:
+            - build
+    rules:
+        - if: $CI_MERGE_REQUEST_LABELS == "front"
+test:
+    stage: test
+    script:
+        - 'npm run lint:styles'
+        - 'npm run lint:scripts'
+    artifacts:
+        paths:
+            - build
+    rules:
+        - if: $CI_MERGE_REQUEST_LABELS == "front"
+pages:
+    stage: pre-production
+    script:
+        - 'rm -r public'
+        - 'mkdir public'
+        - 'cp -r build/* public'
+    rules:
+        - if: $CI_MERGE_REQUEST_LABELS == "front"
+    artifacts:
+        paths:
+            - build
+            - public
+production:
+    stage: production
+    script:
+        - echo "Webhook from autodeploy"
+    rules:
+      - if: $CI_COMMIT_BRANCH == 'master'
+        when: manual

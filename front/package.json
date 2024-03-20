@@ -22,8 +22,8 @@
     "build:replace": "gulp replace-html --production",
     "lint:styles": "stylelint \"src/**/*.scss\" --syntax=scss",
     "lint:styles --fix": "stylelint \"src/**/*.scss\" --syntax=scss --fix",
-    "lint:scripts": "eslint --color src/blocks",
-    "lint:scripts --fix": "eslint --fix --color src/blocks"
+    "lint:scripts": "eslint --color ./src/blocks",
+    "lint:scripts --fix": "eslint --fix --color ./src/blocks"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -81,6 +81,7 @@
     "jquery-validation": "^1.19.3",
     "miragejs": "^0.1.45",
     "photoswipe": "^5.3.0",
+    "prismjs": "^1.29.0",
     "slick-carousel": "^1.8.1",
     "swiper": "^6.7.0",
     "vee-validate": "<3.0.0",
