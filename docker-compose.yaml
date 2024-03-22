@@ -3,10 +3,20 @@ version: "3.9"
 services:
   front:
     image: node:14.20.1-alpine
-    working_dir: /usr/app/front
-    command: "yarn install && yarn run build"
+    build:
+      context: ./front
+    container_name: front
+    working_dir: /var/www/front
+    command: "yarn install && yarn dev"
+    volumes:
+      - ./front
 
   server:
     image: node:14.20.1-alpine
-    working_dir: /usr/app/server
-    command: "yarn install && yarn run build"
+    build:
+      context: ./server
+    container_name: server
+    working_dir: /var/www/server
+    command: "yarn install && yarn run dev"
+    volumes:
+      - ./server
