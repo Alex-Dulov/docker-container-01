@@ -1,6 +1,5 @@
 FROM node:14.20.1-alpine
 
-WORKDIR /var/www/front
+WORKDIR ./opt/front
 ADD . .
-RUN yarn install && yarn dev
-
+RUN yarn install && yarn run build

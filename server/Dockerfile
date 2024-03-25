@@ -1,5 +1,5 @@
 FROM node:14.20.1-alpine
 
-WORKDIR /var/www/server
+WORKDIR ./opt/server
 ADD . .
-RUN yarn install && yarn dev
+RUN yarn install --silent && yarn start

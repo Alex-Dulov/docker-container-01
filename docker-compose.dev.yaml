@@ -9,11 +9,11 @@ services:
       dockerfile: Dockerfile
     container_name: front.${VERSION}
     working_dir: /opt/front
-#    command: sh -c "cd /front; yarn install; yarn build"
+    command: sh -c "cd /front; yarn install; yarn dev"
     ports:
       - "4000:4000"
-#    volumes:
-#      - ".:/front"
+    volumes:
+      - ".:/front"
 
   server:
     image: server
@@ -23,8 +23,8 @@ services:
       dockerfile: Dockerfile
     container_name: server.${VERSION}
     working_dir: /opt/server
-#    command: sh -c "cd /server; yarn install; yarn run start"
+    command: sh -c "cd /server; yarn install; yarn run dev"
     ports:
       - "4100:4100"
-#    volumes:
-#      - ".:/server"
+    volumes:
+      - ".:/server"
